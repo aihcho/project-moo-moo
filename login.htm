@@ -101,7 +101,7 @@
                     url: 'https://api.particle.io/v1/access_tokens/current',
                 });
             });
-            $('#ledOnButton').on('click', function (e) {
+            $('#feedOnButton').on('click', function (e) {
                 e.preventDefault();
                 feedControl('on');
             });
@@ -152,8 +152,6 @@
             $('#userSpan').text(sessionStorage.particleUser);
 
             deviceList.forEach(function (dev) {
-                // For each device in the user's account, see if the device supports the "led" function call
-                // Also note whether it's online or not.
                 if (dev.functions.includes('feed')) {
                     html += '<option value="' + dev.id + '">' + dev.name + (dev.online ? '' : ' (offline)') + '</option>';
                 }
@@ -207,7 +205,7 @@
         <h3>FEED THE COW!</h3>
         <form>
             <p>Device: <select id="deviceSelect"></select></p>
-            <p><button id="ledOnButton">Feed 5 grams</button></p>
+            <p><button id="feedOnButton">Feed 5 grams</button></p>
             <p>&nbsp;</p>
             <p><span id="statusSpan1"></span></p>
             <p>&nbsp;</p>
